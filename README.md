@@ -1,150 +1,148 @@
 # Book Review Platform
 
-A full-stack book review platform built with React frontend and Node.js/Express backend with SQL database.
+A modern web application for book enthusiasts to discover, review, and discuss books. Built with React, Node.js, and MongoDB.
 
 ## Features
 
-### Frontend (React)
-- **Home page** with featured books and statistics
-- **Book listing page** with search and filter functionality
-- **Individual book pages** with details and reviews
-- **User profile page** with editable information
-- **Review submission form** with rating system
-- **Responsive design** that works on all devices
-- **State management** using React Context API
-- **React Router** for navigation
-- **Error handling** and loading states
+- 📚 Browse and search books
+- ⭐ Write and read book reviews
+- 👤 User profiles with review history
+- 🏷️ Genre-based filtering
+- 📱 Responsive design for all devices
+- 🔍 Advanced search functionality
+- ⭐ Rating system
+- 💬 Review comments and likes
 
-### Backend (Node.js/Express)
-- **RESTful API** with comprehensive endpoints
-- **SQL database** using SQLite for data persistence
-- **Data validation** and error handling
-- **CORS support** for cross-origin requests
+## Tech Stack
+
+### Frontend
+- React.js
+- React Router for navigation
+- CSS3 with modern features
+- Context API for state management
+
+### Backend
+- Node.js with Express
+- MongoDB with Mongoose
+- RESTful API architecture
+- JWT authentication (coming soon)
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (local or Atlas)
+- npm or yarn package manager
+
+## Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/book-review-platform.git
+   cd book-review-platform
+   ```
+
+2. Install dependencies:
+   ```bash
+   # Install backend dependencies
+   cd backend
+   npm install
+
+   # Install frontend dependencies
+   cd ../frontend
+   npm install
+   ```
+
+3. Environment Setup:
+   Create a `.env` file in the backend directory:
+   ```
+   PORT=5000
+   MONGODB_URI=your_mongodb_connection_string
+   NODE_ENV=development
+   ```
+
+4. Start the development servers:
+   ```bash
+   # Start backend server (from backend directory)
+   npm run dev
+
+   # Start frontend server (from frontend directory)
+   npm start
+   ```
+
+5. Access the application:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
+
+## Project Structure
+
+```
+book-review-platform/
+├── backend/
+│   ├── config/
+│   ├── models/
+│   ├── routes/
+│   ├── server.js
+│   └── package.json
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── contexts/
+│   │   └── App.js
+│   └── package.json
+└── README.md
+```
 
 ## API Endpoints
 
-- `GET /api/books` - Retrieve all books (with pagination, search, filtering)
-- `GET /api/books/:id` - Retrieve a specific book
-- `POST /api/books` - Add a new book (admin only)
-- `GET /api/reviews` - Retrieve reviews (filterable by book/user)
-- `POST /api/reviews` - Submit a new review
-- `GET /api/users/:id` - Retrieve user profile
+### Books
+- `GET /api/books` - Get all books (with pagination and filtering)
+- `GET /api/books/:id` - Get a specific book
+- `POST /api/books` - Create a new book
+- `PUT /api/books/:id` - Update a book
+- `DELETE /api/books/:id` - Delete a book
+
+### Reviews
+- `GET /api/reviews` - Get all reviews (with filtering)
+- `GET /api/reviews/:id` - Get a specific review
+- `POST /api/reviews` - Create a new review
+- `PUT /api/reviews/:id` - Update a review
+- `DELETE /api/reviews/:id` - Delete a review
+
+### Users
+- `GET /api/users/:id` - Get user profile
 - `PUT /api/users/:id` - Update user profile
-
-## Installation & Setup
-
-### Backend Setup
-1. Navigate to the backend directory:
-   \`\`\`bash
-   cd backend
-   \`\`\`
-
-2. Install dependencies:
-   \`\`\`bash
-   npm install
-   \`\`\`
-
-3. Start the server:
-   \`\`\`bash
-   npm run dev
-   \`\`\`
-   The backend will run on http://localhost:5000
-
-### Frontend Setup
-1. Navigate to the frontend directory:
-   \`\`\`bash
-   cd frontend
-   \`\`\`
-
-2. Install dependencies:
-   \`\`\`bash
-   npm install
-   \`\`\`
-
-3. Start the development server:
-   \`\`\`bash
-   npm start
-   \`\`\`
-   The frontend will run on http://localhost:3000
-
-## Database Schema
-
-### Books Table
-- id (INTEGER PRIMARY KEY)
-- title (TEXT)
-- author (TEXT)
-- description (TEXT)
-- cover_image (TEXT)
-- genre (TEXT)
-- published_date (TEXT)
-- isbn (TEXT)
-- average_rating (REAL)
-- total_reviews (INTEGER)
-- featured (BOOLEAN)
-
-### Users Table
-- id (INTEGER PRIMARY KEY)
-- name (TEXT)
-- email (TEXT UNIQUE)
-- avatar (TEXT)
-- joined_date (TEXT)
-- review_count (INTEGER)
-- favorite_genres (TEXT - JSON)
-
-### Reviews Table
-- id (INTEGER PRIMARY KEY)
-- book_id (INTEGER)
-- user_id (INTEGER)
-- user_name (TEXT)
-- rating (INTEGER)
-- title (TEXT)
-- content (TEXT)
-- created_at (TEXT)
-
-## Technologies Used
-
-### Frontend
-- React 18
-- React Router DOM
-- React Context API
-- CSS3 with Flexbox/Grid
-- Responsive Design
-
-### Backend
-- Node.js
-- Express.js
-- SQLite3
-- CORS middleware
-
-## Features Implemented
-
-✅ **Code Quality**: Well-organized, modular code structure
-✅ **React Hooks**: Proper use of useState, useEffect, useContext
-✅ **RESTful API**: Clean, consistent API design
-✅ **Database Design**: Normalized schema with proper relationships
-✅ **Error Handling**: Comprehensive error handling throughout
-✅ **Documentation**: Clear README and code comments
-✅ **UI/UX Design**: Modern, responsive, user-friendly interface
-
-## Future Enhancements
-
-- User authentication and authorization
-- Book recommendation system
-- Social features (following users, sharing reviews)
-- Admin dashboard for content management
-- Image upload for book covers and user avatars
-- Advanced search with filters
-- Email notifications
-- Mobile app version
+- `POST /api/users` - Create a new user
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Future Enhancements
+
+- [ ] User authentication and authorization
+- [ ] Social features (following users, sharing reviews)
+- [ ] Reading lists and bookmarks
+- [ ] Advanced search filters
+- [ ] Book recommendations
+- [ ] Review analytics
+- [ ] Mobile app version
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Book cover images from [Open Library](https://openlibrary.org/)
+- Icons from [Material Icons](https://material.io/resources/icons/)
+- Design inspiration from various book review platforms
+
+## Support
+
+For support, email support@bookreviewplatform.com or create an issue in the repository.
